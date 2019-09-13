@@ -58,25 +58,20 @@ class siemensNumKeyboard extends HTMLElement {
       this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
 
-    // ======================
-    // Adds event to buttons
-    // ======================
+    // ==============================================================================================================================================
+    // Adds event to buttons, clicked Event on Root Element is triggerd whenever something is clicked, master page needs to listen to "clicked" event
+    // ==============================================================================================================================================
+    var self = this;
     this.$('td').forEach(function (item) {
-      item.addEventListener('click', function () {
-        console.log(this.dataset.item);
+      item.addEventListener('click', (e) => {
+        self.dispatchEvent(new CustomEvent("clicked", {
+          detail: item.dataset.item
+        }));
       });
     });
 
     this.dragElement(this.shadowRoot.querySelector('#mydiv'));
   }
-
-  // shine(event) {
-  //     //this.$('span').animate(keyframes, options)
-  //     // this.dispatchEvent(new CustomEvent("clicked", {
-  //     //   detail: 2
-  //     // }));
-  //     console.log(this);
-  // }
 
   // ===========================
   // W3C method to drag elements
