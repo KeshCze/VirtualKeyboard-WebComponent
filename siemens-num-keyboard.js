@@ -4,7 +4,7 @@ template.innerHTML = `
     #mydiv {
       position: absolute;
       z-index: 9;
-      background-color: #f1f1f1;
+      background-color: #f5f5f5;
       border: 1px solid #d3d3d3;
       text-align: center;
       }
@@ -13,8 +13,27 @@ template.innerHTML = `
       padding: 10px;
       cursor: move;
       z-index: 10;
-      background-color: #2196F3;
+      background-color: #57afad;
       color: #fff;
+      }
+
+      table{
+        width: 100%;
+        text-align: center;
+        border: 0.4px solid black;
+        border-collapse: collapse;
+        user-select:none;
+        cursor: pointer;
+      }
+
+      td{
+        width: 3rem;
+        height: 3rem;
+        border: 0.4px solid black;
+      }
+
+      td:hover{
+        background-color: #e0e0e0;
       }
   </style>
     <div id="mydiv">
@@ -34,6 +53,14 @@ template.innerHTML = `
           <td data-item="7">7</td>
           <td data-item="8">8</td>
           <td data-item="9">9</td>
+        </tr>
+        <tr>
+          <td data-item="-">-</td>
+          <td data-item="0">0</td>
+          <td data-item="del">del</td>
+        </tr>
+        <tr>
+          <td colspan=3 data-item="entr">ENTER</td>
         </tr>
       </table>
     

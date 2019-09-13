@@ -8,21 +8,48 @@
     <title>Document</title>
     <script type="module" src="siemens-num-keyboard.js"></script>
 </head>
+<style>
+    siemens-num-keyboard {
+        font-size: xx-large;
+    }
+</style>
+
 <body>
-    <input id="inpt" type="text">      
-    <input id="inpt2" type="text">      
+    <input id="inpt" type="text">
+    <input id="inpt2" type="text">
     <siemens-num-keyboard></siemens-num-keyboard>
 </body>
 
 </html>
 <script>
-    function updateInput(value){
+    function updateInput(value) {
         var focusedInput = document.querySelector('input:focus');
-        focusedInput.value += value;
-    }   
+        if (focusedInput !== null) {
+
+            focusedInput.value += value;
+        }
+    }
+
+    function deleteInput() {
+        var focusedInput = document.querySelector('input:focus');
+        if (focusedInput !== null) {
+            focusedInput.value = focusedInput.value.substring(0,--focusedInput.value.length);
+        }
+    }
     var keyboard = document.querySelector('siemens-num-keyboard');
-    
-    keyboard.addEventListener("clicked", (evt) => { updateInput(evt.detail) });
+
+    keyboard.addEventListener("clicked", (evt) => {       
+        switch (evt.detail) {
+            case "del":
+                deleteInput();
+                break;
+            case "entr":
+                // code block
+                break;
+            default:
+            updateInput(evt.detail);
+        }
+    });
 
 
 </script>
