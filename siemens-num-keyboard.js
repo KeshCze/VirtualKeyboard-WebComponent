@@ -7,6 +7,10 @@ template.innerHTML = `
       background-color: #f5f5f5;
       border: 1px solid #d3d3d3;
       text-align: center;
+      min-width: 300px;
+      min-height: 400px;
+      width: 300px;
+      height: 400px;
       }
   
       #mydivheader {
